@@ -23,6 +23,7 @@ class Mahasiswa extends CI_Controller {
 
 		$this->load->view('form_tambah');
 	}
+	
 
 	public function ubah($nim){
 		if($this->input->post('submit')){
@@ -45,7 +46,18 @@ class Mahasiswa extends CI_Controller {
 	$keyword = $this->input->post('keyword'); //Meminta Keyword
 	$data['mahasiswa']=$this->M_data->get_product_keyword($keyword);//Meminta Data melalui M_data->get_product_keyword
 	$this->load->view('search',$data);//Berfungsi untuk menampilkan data di view.php
-}
+	}
+
+	public function login(){
+		$data['mahasiswa'] = $this->M_data->view();
+		if($this->input->post('submit')){
+			if($this->M_data->doLogin() && $this->M_data->doLogin()!= "Admin"){
+				echo $this->M_data->doLogin();
+			}else if($this->M_data->doLogin()=="Admin"){
+				$this->load->view('mahasiswa', $data);
+			}
+		}
+	}
 }
 
 

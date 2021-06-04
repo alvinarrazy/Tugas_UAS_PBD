@@ -68,5 +68,24 @@ class M_data extends CI_Model {
 
 			return $this->db->get()->result();//Hasil
 		}
+		public function doLogin(){
+			$post = $this->input->post();
+	
+			$this->db->where('nama', $post["input_nama"]);
+			$user = $this->db->get("mahasiswa")->row();
+	
+
+			if($user){
+				if($post["input_nim"] == $user->nim){
+					return $user->nama;
+				}else{
+					echo "Kredensial Salah!";
+				}
+
+			}else if($post["input_nim"] == "Admin" && $post["input_nama"] == "Admin"){
+				return "Admin";
+			}
+		}
+	
 	}
 ?>
