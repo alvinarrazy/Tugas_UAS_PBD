@@ -1,9 +1,8 @@
 <!DOCTYPE html>
-<html>	
+<html>
 <head>
 
-	<title>Data Mahasiswa
-	</title>
+	<title>CRUD Codeigniter</title>
 	<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto|Varela+Round|Open+Sans">
 <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
@@ -21,33 +20,27 @@
                 <div class="row">
                     <div class="col-sm-8"><h2>Data <b>Mahasiswa</b> </h2></div>
                     <div class="col-sm-4">
-  
-    <?php echo form_open('admin/mahasiswa/search') ?>
+                    	<?php echo form_open('admin/mahasiswa/search') ?>
 		<input type="text" name="keyword" class="form-control" placeholder="Search&hellip;">
-		<input type="submit" name="search_submit" button class="btn btn-success" value="Cari">
-	<?php echo form_close() ?>
+				<input type="submit" name="search_submit" button class="btn btn-success" value="Cari">
 
+	<?php echo form_close() ?>
 
                         
                             
                         </div>
                     </div>
-					<a class="btn btn-primary" href="<?= site_url('login/logout') ?>">Logout</a>
-
                 </div>
             </div>
 	<hr>
 	<button type="button" class="btn btn-info add-new"><i class="fa fa-plus"></i><a href='<?php echo base_url("admin/mahasiswa/tambah"); ?>'>
 	Tambah Data</a></button><br><br>
-
 	<table class="table table-striped table-hover table-bordered"border="1" cellpadding="7">
-		<?php( ! empty($mahasiswa)){} 
-		foreach($mahasiswa as $data) { ?>
+		<?php foreach($mahasiswa as $data) {?>
 				<tr>
 					
 				</tr>
-			<?php  ?>
-		
+			<?php } ?>
 	<hr>
 
 

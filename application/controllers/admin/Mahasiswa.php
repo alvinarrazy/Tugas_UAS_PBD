@@ -7,23 +7,23 @@ class Mahasiswa extends CI_Controller {
 		$this->load->library('session');
 		$this->load->model('Mahasiswa_model', 'Mahasiswa_model');
 		$this->load->model('User_model', 'User_model');
-		if($this->User_model->isNotLogin()) redirect(site_url('login'));
+		if($this->User_model->isNotAdmin()) redirect(site_url('login'));
 	}
 
 	public function index(){
 		$data['mahasiswa'] = $this->Mahasiswa_model->view();
-		$this->load->view('admin_views/mahasiswa', $data);
+		$this->load->view('admin_views/mahasiswa/index', $data);
 	}
 
 	public function tambah(){
 		if($this->input->post('submit')){
 			if($this->Mahasiswa_model->validation("save")){
 				$this->Mahasiswa_model->save();
-				redirect('admin/mahasiswa');
+				redirect('admin/mahasiswa/mahasiswa');
 			}
 		}
 
-		$this->load->view('admin_views/form_tambah');
+		$this->load->view('admin_views/mahasiswa/form_tambah');
 	}
 	
 
@@ -36,7 +36,7 @@ class Mahasiswa extends CI_Controller {
 		}
 
 		$data['mahasiswa'] = $this->Mahasiswa_model->view_by($nim);
-		$this->load->view('admin_views/form_ubah', $data);
+		$this->load->view('admin_views/mahasiswa/form_ubah', $data);
 	}
 
 	public function hapus($nim){
@@ -47,7 +47,7 @@ class Mahasiswa extends CI_Controller {
 	public function search(){
 	$keyword = $this->input->post('keyword'); //Meminta Keyword
 	$data['mahasiswa']=$this->Mahasiswa_model->get_product_keyword($keyword);//Meminta Data melalui Mahasiswa_model->get_product_keyword
-	$this->load->view('admin_views/search',$data);//Berfungsi untuk menampilkan data di view.php
+	$this->load->view('admin_views/mahasiswa/search',$data);//Berfungsi untuk menampilkan data di view.php
 	}
 
 }

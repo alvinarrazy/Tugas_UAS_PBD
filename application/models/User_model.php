@@ -31,6 +31,10 @@ class User_model extends CI_Model {
         public function isNotLogin(){
             return $this->session->userdata('user_logged') === null;
         }
+
+		public function isNotAdmin(){
+            return $this->session->userdata('user_logged') !== 'Admin';
+        }
 	
 	}
 ?>
