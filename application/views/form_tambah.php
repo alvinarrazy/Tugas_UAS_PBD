@@ -25,7 +25,7 @@
 </div>
 	<hr>
 	<div style="color: red;"><?php echo validation_errors(); ?></div>
-	<?php echo form_open("mahasiswa/tambah"); ?>
+	<?php echo form_open("admin/mahasiswa/tambah"); ?>
 	<table cellpadding="8">
 		<tr>
 			<div class="form-group">

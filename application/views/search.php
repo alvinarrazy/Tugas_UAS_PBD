@@ -20,7 +20,7 @@
                 <div class="row">
                     <div class="col-sm-8"><h2>Data <b>Mahasiswa</b> </h2></div>
                     <div class="col-sm-4">
-                    	<?php echo form_open('mahasiswa/search') ?>
+                    	<?php echo form_open('admin/mahasiswa/search') ?>
 		<input type="text" name="keyword" class="form-control" placeholder="Search&hellip;">
 				<input type="submit" name="search_submit" button class="btn btn-success" value="Cari">
 
@@ -33,7 +33,7 @@
                 </div>
             </div>
 	<hr>
-	<button type="button" class="btn btn-info add-new"><i class="fa fa-plus"></i><a href='<?php echo base_url("mahasiswa/tambah"); ?>'>
+	<button type="button" class="btn btn-info add-new"><i class="fa fa-plus"></i><a href='<?php echo base_url("admin/mahasiswa/tambah"); ?>'>
 	Tambah Data</a></button><br><br>
 	<table class="table table-striped table-hover table-bordered"border="1" cellpadding="7">
 		<?php foreach($mahasiswa as $data) {?>
@@ -63,8 +63,8 @@
 				<td>".$data->jenis_kelamin."</td>
 				<td>".$data->telp."</td>
 				<td>".$data->alamat."</td>
-				<td ><center><a href='".base_url("mahasiswa/ubah/".$data->nim)."'>Ubah</a></center></td>
-				<td><center><a href='".base_url("mahasiswa/hapus/".$data->nim)."'>Hapus</a></center></td>
+				<td ><center><a href='".base_url("admin/mahasiswa/ubah/".$data->nim)."'>Ubah</a></center></td>
+				<td><center><a href='".base_url("admin/mahasiswa/hapus/".$data->nim)."'>Hapus</a></center></td>
 				</tr>";
 
 			}

@@ -27,7 +27,7 @@
     <hr>
     <!-- Menampilkan Error jika validasi tidak valid -->
     <div style="color: red;"><?php echo validation_errors(); ?></div>
-    <?php echo form_open("mahasiswa/ubah/".$mahasiswa->nim); ?>
+    <?php echo form_open("admin/mahasiswa/ubah/".$mahasiswa->nim); ?>
       <table cellpadding="8">
         <tr>
           <td>NIM</td>
