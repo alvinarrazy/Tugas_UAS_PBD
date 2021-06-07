@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-	<title>Form Tambah - Data Mahasiswa</title>
+	<title>Form Tambah - Data Matakuliah</title>
 	<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto|Varela+Round|Open+Sans">
 <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
@@ -17,7 +17,7 @@
             <div class="card card-6">
                 <div class="row">
                     <div class="col-sm-6">
-	<h1>Form Tambah <b>Data Mahasiswa</b></h1>
+	<h1>Form Tambah <b>Data Matakuliah</b></h1>
 	</div>
 </div>
 </div>
@@ -53,7 +53,7 @@
 	<div class="control-group">
 		<div class="controls">
 	<input type="submit" name="submit" button class="btn btn-success" value="Simpan">
-	<a href="<?php echo base_url(); ?>"><input type="button" button class="btn btn-danger" value="Batal"></a>
+	<a href="<?php echo site_url('admin/Matakuliah'); ?>"><input type="button" button class="btn btn-danger" value="Batal"></a>
 	<?php echo form_close(); ?>
 </body>
 </html>

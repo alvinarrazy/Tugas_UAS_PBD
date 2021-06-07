@@ -56,7 +56,7 @@
         
       <hr>
       <input type="submit" name="submit" button class="btn btn-success" value="Ubah">
-      <a href="<?php echo base_url(); ?>"><input type="button" button class="btn btn-danger" value="Batal"></a>
+      <a href="<?php echo site_url('admin/Mahasiswa'); ?>"><input type="button" button class="btn btn-danger" value="Batal"></a>
     <?php echo form_close(); ?>
   </body>
 </html>

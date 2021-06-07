@@ -1,6 +1,6 @@
 <html>
   <head>
-    <title>Form Ubah - Data Mahasiswa</title>
+    <title>Form Ubah - Data Matakuliah</title>
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto|Varela+Round|Open+Sans">
 <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
@@ -17,7 +17,7 @@
             <div class="card card-6">
                 <div class="row">
                     <div class="col-sm-6">
-  <h1>Form Ubah <b>Data Mahasiswa</b></h1>
+  <h1>Form Ubah <b>Data Matakuliah</b></h1>
   </div>
 </div>
 </div>
@@ -27,36 +27,29 @@
     <hr>
     <!-- Menampilkan Error jika validasi tidak valid -->
     <div style="color: red;"><?php echo validation_errors(); ?></div>
-    <?php echo form_open("admin/mahasiswa/ubah/".$mahasiswa->nim); ?>
+    <?php echo form_open("admin/matakuliah/ubah/".$matakuliah->kode_mk); ?>
       <table cellpadding="8">
         <tr>
-          <td>NIM</td>
-          <td><input type="text" class="form-control" name="input_nim" placeholder="NIM" value="<?php echo set_value('input_nim', $mahasiswa->nim); ?>" readonly></td>
+          <td>Kode Matakuliah</td>
+          <td><input type="text" class="form-control" name="input_kodeMk" placeholder="Kode Matakuliah" value="<?php echo set_value('input_kodeMk', $matakuliah->kode_mk); ?>" readonly></td>
         </tr>
         <tr>
-          <td>Nama</td>
-          <td><input type="text" class="form-control" name="input_nama" placeholder="Nama" value="<?php echo set_value('input_nama', $mahasiswa->nama); ?>"></td>
+          <td>Nama Matakuliah</td>
+          <td><input type="text" class="form-control" name="input_namaMk" placeholder="Nama Matakuliah" value="<?php echo set_value('input_namaMk', $matakuliah->nama_mk); ?>"></td>
         </tr>
         <tr>
-          <td>Jenis Kelamin</td>
-          <td>
-          <input type="radio" name="input_jeniskelamin" value="Laki-laki" <?php echo set_radio('jeniskelamin', 'Laki-laki', ($mahasiswa->jenis_kelamin == "Laki-laki")? true : false); ?>> Laki-laki
-          <input type="radio" name="input_jeniskelamin" value="Perempuan" <?php echo set_radio('jeniskelamin', 'Perempuan', ($mahasiswa->jenis_kelamin == "Perempuan")? true : false); ?>> Perempuan
-          </td>
+          <td>SKS</td>
+          <td><input type="text" class="form-control" name="input_sksMk" placeholder="SKS" value="<?php echo set_value('input_sksMk', $matakuliah->sks_mk); ?>"></td>
         </tr>
         <tr>
-          <td>Telepon</td>
-          <td><input type="text" class="form-control" name="input_telp" placeholder="Telepon" value="<?php echo set_value('input_telp', $mahasiswa->telp); ?>"></td>
-        </tr>
-        <tr>
-          <td>Alamat</td>
-          <td><textarea class="form-control" name="input_alamat" placeholder="Alamat"><?php echo set_value('input_alamat', $mahasiswa->alamat); ?></textarea></td>
+          <td>Semester</td>
+          <td><input class="form-control" name="input_semesterMk" placeholder="Semester" value="<?php echo set_value('input_semesterMk', $matakuliah->semester_mk); ?>"></input></td>
         </tr>
       </table>
         
       <hr>
       <input type="submit" name="submit" button class="btn btn-success" value="Ubah">
-      <a href="<?php echo base_url(); ?>"><input type="button" button class="btn btn-danger" value="Batal"></a>
+      <a href="<?php echo site_url('admin/Matakuliah'); ?>"><input type="button" button class="btn btn-danger" value="Batal"></a>
     <?php echo form_close(); ?>
   </body>
 </html>

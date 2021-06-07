@@ -30,11 +30,16 @@
                             
                         </div>
                     </div>
+					<a class="btn btn-primary" href="<?= site_url('login/logout') ?>">Logout</a>
+					<a class="btn btn-primary" href="<?= site_url('admin/Matakuliah') ?>">Matakuliah</a>
+
                 </div>
             </div>
 	<hr>
 	<button type="button" class="btn btn-info add-new"><i class="fa fa-plus"></i><a href='<?php echo base_url("admin/mahasiswa/tambah"); ?>'>
-	Tambah Data</a></button><br><br>
+	Tambah Data</a></button>
+
+	<br><br>
 	<table class="table table-striped table-hover table-bordered"border="1" cellpadding="7">
 		<?php foreach($mahasiswa as $data) {?>
 				<tr>
