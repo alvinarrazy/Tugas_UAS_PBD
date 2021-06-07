@@ -32,7 +32,7 @@
                             
                         </div>
                     </div>
-
+					<a class="btn btn-primary" href="<?= site_url('login/logout') ?>">Logout</a>
 
                 </div>
             </div>

@@ -23,6 +23,13 @@ class Login extends CI_Controller {
 		}
 		$this->load->view('index');
 	}
+
+	public function logout()
+    {
+        // hancurkan semua sesi
+        $this->session->sess_destroy();
+        redirect(site_url('login'));
+    }
 }
 
 
