@@ -12,7 +12,7 @@ class Mahasiswa extends CI_Controller {
 
 	public function index(){
 		$data['mahasiswa'] = $this->Mahasiswa_model->view();
-		$this->load->view('mahasiswa', $data);
+		$this->load->view('admin_views/mahasiswa', $data);
 	}
 
 	public function tambah(){
@@ -23,7 +23,7 @@ class Mahasiswa extends CI_Controller {
 			}
 		}
 
-		$this->load->view('form_tambah');
+		$this->load->view('admin_views/form_tambah');
 	}
 	
 
@@ -36,7 +36,7 @@ class Mahasiswa extends CI_Controller {
 		}
 
 		$data['mahasiswa'] = $this->Mahasiswa_model->view_by($nim);
-		$this->load->view('form_ubah', $data);
+		$this->load->view('admin_views/form_ubah', $data);
 	}
 
 	public function hapus($nim){
@@ -47,7 +47,7 @@ class Mahasiswa extends CI_Controller {
 	public function search(){
 	$keyword = $this->input->post('keyword'); //Meminta Keyword
 	$data['mahasiswa']=$this->Mahasiswa_model->get_product_keyword($keyword);//Meminta Data melalui Mahasiswa_model->get_product_keyword
-	$this->load->view('search',$data);//Berfungsi untuk menampilkan data di view.php
+	$this->load->view('admin_views/search',$data);//Berfungsi untuk menampilkan data di view.php
 	}
 
 }

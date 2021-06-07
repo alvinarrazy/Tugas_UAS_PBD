@@ -15,8 +15,8 @@ class Login extends CI_Controller {
 		$data['mahasiswa'] = $this->User_model->view();
 		if($this->input->post('submit')){
 			if($this->User_model->doLogin() && $this->User_model->doLogin()!= "Admin"){
-				echo $this->User_model->doLogin();
-				
+				//echo $this->User_model->doLogin();
+				redirect('mahasiswa/KRS');
 			}else if($this->User_model->doLogin()=="Admin"){
 				redirect('admin/mahasiswa');
 			}
