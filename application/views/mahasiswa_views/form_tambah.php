@@ -36,23 +36,8 @@
 		</div>
 		</tr>
 		<tr>
-			<td>Nama</td>
-			<td><input type="text" class="form-control" name="input_nama" placeholder="Nama" value="<?php echo set_value('input_nama'); ?>"></td>
-		</tr>
-		<tr>
-			<td>Jenis Kelamin</td>
-			<td>
-				<input type="radio" name="input_jeniskelamin" value="Laki-laki"<?php echo set_radio('jeniskelamin', 'Laki-laki'); ?>> Laki-laki
-				<input type="radio" name="input_jeniskelamin" value="Perempuan"<?php echo set_radio('jeniskelamin', 'Perempuan'); ?>> Perempuan
-			</td>
-		</tr>
-		<tr>
-			<td>Telepon</td>
-			<td><input type="text" class="form-control" name="input_telp" placeholder="Telepon" value="<?php echo set_value('input_telp'); ?>"></td>
-		</tr>
-		<tr>
-			<td>Alamat</td>
-			<td><textarea class="form-control" name="input_alamat" placeholder="Alamat"><?php echo set_value('input_alamat'); ?></textarea></td>
+			<td>Kode Matakuliah</td>
+			<td><input type="text" class="form-control" name="input_kodeMk" placeholder="Kode Matakuliah" value="<?php echo set_value('input_nama'); ?>"></td>
 		</tr>
 	</table>
 

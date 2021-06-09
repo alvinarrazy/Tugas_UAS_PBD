@@ -15,6 +15,18 @@ class KRS extends CI_Controller {
 		$this->load->view('mahasiswa_views/index', $data);
 	}
 
+	public function tambah(){
+		$this->load->library('session');
+		if($this->input->post('submit')){
+			if($this->AmbilMk_model->validation("save")){
+				$this->AmbilMk_model->save($this->session->userdata('user_logged'));
+				redirect('mahasiswa/KRS');
+			}
+		}
+
+		$this->load->view('mahasiswa_views/form_tambah');
+	}
+
 }
 
 

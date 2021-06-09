@@ -16,7 +16,7 @@ class User_model extends CI_Model {
 
 			if($user){
 				if($post["input_nim"] == $user->nim){
-					$this->session->set_userdata(['user_logged' => $user]);
+					$this->session->set_userdata(['user_logged' => $user->nim]);
 					return $user->nama;
 				}else{
 					echo "Kredensial Salah!";
@@ -34,6 +34,10 @@ class User_model extends CI_Model {
 
 		public function isNotAdmin(){
             return $this->session->userdata('user_logged') !== 'Admin';
+        }
+
+		public function getUserData(){
+            return $this->session->userdata('user_logged');
         }
 	
 	}

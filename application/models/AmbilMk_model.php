@@ -16,37 +16,19 @@ class AmbilMk_model extends CI_Model {
 		if($mode == "save")
 			$this->form_validation->set_rules('input_kodeMk', 'Kode MK', 'required|max_length[10]');
 
-		$this->form_validation->set_rules('input_namaMk', 'Nama MK', 'required|max_length[20]');
-		$this->form_validation->set_rules('input_sksMk', 'SKS MK', 'required|numeric|max_length[10]');
-		$this->form_validation->set_rules('input_semesterMk', 'Semester MK', 'required|numeric|max_length[10]');
-
 		if($this->form_validation->run())
 			return TRUE;
 		else
 			return FALSE;
 	}
 
-		public function save(){
+		public function save($nim){
 			$data = array(
 				"kode_mk" => $this->input->post('input_kodeMk'),
-				"nama_mk" => $this->input->post('input_namaMk'),
-				"sks_mk" => $this->input->post('input_sksMk'),
-				"semester_mk" => $this->input->post('input_semesterMk')
+				"nim_mahasiswa" => $this->input->post($nim)
 			);
 
-			$this->db->insert('matakuliah', $data);
-		}
-
-		public function edit($kode_mk){
-			$data = array(
-				"kode_mk" => $this->input->post('input_kodeMk'),
-				"nama_mk" => $this->input->post('input_namaMk'),
-				"sks_mk" => $this->input->post('input_sksMk'),
-				"semester_mk" => $this->input->post('input_semesterMk')
-			);
-
-			$this->db->where('kode_mk', $kode_mk);
-			$this->db->update('matakuliah', $data);
+			$this->db->insert('mk_diambil', $data);
 		}
 
 		public function delete($kode_mk){
