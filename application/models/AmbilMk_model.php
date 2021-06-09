@@ -2,8 +2,10 @@
 defined('BASEPATH') OR exit('No direct script access allowed');
 class AmbilMk_model extends CI_Model {
 
-	public function view(){
-		return $this->db->get('matakuliah_diambil_mahasiswa')->result();
+	public function view($nim){
+		$this->db->from('matakuliah_diambil_mahasiswa');
+		$this->db->where('nim', $nim);	
+		return $this->db->get()->result();
 	}
 
 	public function viewMatkulOptions(){
@@ -17,13 +19,24 @@ class AmbilMk_model extends CI_Model {
 
 	public function validation($mode){
 		$this->load->library('form_validation');
-		if($mode == "save")
-			$this->form_validation->set_rules('input_kodeMk', 'Kode MK', 'required|max_length[10]');
+		if($mode == "save"){
+			$this->form_validation->set_rules('input_kodeMk', 'Kode MK', 'required|max_length[10]' );
 
+		}
+			
 		if($this->form_validation->run())
 			return TRUE;
 		else
 			return FALSE;
+	}
+
+	public function checkSameMatkul($kode_mk, $nim){
+		$this->db->from('matakuliah_diambil_mahasiswa');
+		$this->db->where('nim', $nim);	
+		$this->db->where('kode_mk', $kode_mk);
+			$results = $this->db->get()->row();
+		if($results) return true;
+		else return false;
 	}
 
 		public function save($nim){
