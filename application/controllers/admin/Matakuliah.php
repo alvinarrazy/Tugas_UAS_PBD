@@ -12,6 +12,7 @@ class Matakuliah extends CI_Controller {
 
 	public function index(){
 		$data['matakuliah'] = $this->Matakuliah_model->view();
+		$this->load->view('admin_views/navbar');
 		$this->load->view('admin_views/matakuliah/index', $data);
 	}
 
@@ -22,6 +23,7 @@ class Matakuliah extends CI_Controller {
 				redirect('admin/matakuliah');
 			}
 		}
+		$this->load->view('admin_views/navbar');
 
 		$this->load->view('admin_views/matakuliah/form_tambah');
 	}
@@ -36,6 +38,8 @@ class Matakuliah extends CI_Controller {
 		}
 
 		$data['matakuliah'] = $this->Matakuliah_model->view_by($kode_mk);
+	$this->load->view('admin_views/navbar');
+		
 		$this->load->view('admin_views/matakuliah/form_ubah', $data);
 	}
 
@@ -47,7 +51,8 @@ class Matakuliah extends CI_Controller {
 	public function search(){
 	$keyword = $this->input->post('keyword'); //Meminta Keyword
 	$data['matakuliah']=$this->Matakuliah_model->get_product_keyword($keyword);//Meminta Data melalui Matakuliah_model->get_product_keyword
-	$this->load->view('admin_views/matakuliah/search',$data);//Berfungsi untuk menampilkan data di view.php
+	$this->load->view('admin_views/navbar');
+	$this->load->view('admin_views/matakuliah/index',$data);//Berfungsi untuk menampilkan data di view.php
 	}
 
 }

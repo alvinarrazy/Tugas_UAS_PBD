@@ -1,55 +1,55 @@
+<!DOCTYPE html>
 <html>
-  <head>
-    <title>Form Ubah - Data Matakuliah</title>
-    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto|Varela+Round|Open+Sans">
-<link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
-<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
-<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
-<script srchttps://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
-<script "<?php echo base_url() ?>assets/js/javascript.js"></script>
-<link rel="stylesheet" href="assets/css/style.css">
+<head>
+	<title>Form Ubah - Data Matakuliah</title>
+	<link rel="stylesheet" type="text/css" href="<?php echo base_url('assets/css/main.css'); ?>">
+	<link rel="stylesheet" type="text/css" href="<?php echo base_url('assets/css/HeroSection.css'); ?>">
 
-  </head>
-  <body>
-    <div class="page-wrapper bg-dark p-t-100 p-b-50">
-        <div class="wrapper wrapper--w900">
-            <div class="card card-6">
-                <div class="row">
-                    <div class="col-sm-6">
-  <h1>Form Ubah <b>Data Matakuliah</b></h1>
+	<script type='text/javascript' src="<?php echo base_url('js/jquery.min.js'); ?>"></script>
+</head>
+<body>
+<div class="hero-container">
+  <div
+    style="width: 45%; position: absolute; right: 20px"
+    class="form-container"
+  >
+  <?php echo form_open("admin/matakuliah/ubah/".$matakuliah->kode_mk); ?>
+    <form style="width: 100%; height: 100%">
+      <div
+        style="width: 100%; height: 27%; display: block"
+        class="firstForm"
+      >
+        <h2
+          style="font-size: 20px; font-family: Montserrat"
+        >
+          Form Ubah Data Matakuliah
+        </h2>
+		<label>Kode Matakuliah</label>
+        <input type="text" name="input_kodeMk" value="<?php echo set_value('input_kodeMk', $matakuliah->kode_mk); ?>" placeholder="Kode Matakuliah" style="padding: 5px " />
+        <label>Nama Matakuliah</label>
+        <input type="text" name="input_namaMk" value="<?php echo set_value('input_namaMk', $matakuliah->nama_mk); ?>" placeholder="Nama Matakuliah" style="padding: 5px " />
+        <label>SKS</label>
+        <input type="text" name="input_sksMk" value="<?php echo set_value('input_sksMk', $matakuliah->sks_mk); ?>" placeholder="SKS" style="padding: 5px " />
+        <label>Semester</label>
+        <input type="text" name="input_semesterMk" value="<?php echo set_value('input_semesterMk',$matakuliah->semester_mk); ?>" placeholder="Semester" style="padding: 5px " />
+        <br />
+        <input
+          type="submit"
+          value="Simpan"
+          class="submit"
+          name="submit"
+          id="submit"
+        />
+      </div>
+    </form>
+	<?php echo form_close(); ?>
+  </div>
+  <div class="foto" style="margin-right: 60%">
+    <img
+      style="max-height: 100%; max-width: 100%"
+      src="<?=base_url('assets/images/GKB.jpg');?>"
+    />
   </div>
 </div>
-</div>
-</div>
-</div>
-
-    <hr>
-    <!-- Menampilkan Error jika validasi tidak valid -->
-    <div style="color: red;"><?php echo validation_errors(); ?></div>
-    <?php echo form_open("admin/matakuliah/ubah/".$matakuliah->kode_mk); ?>
-      <table cellpadding="8">
-        <tr>
-          <td>Kode Matakuliah</td>
-          <td><input type="text" class="form-control" name="input_kodeMk" placeholder="Kode Matakuliah" value="<?php echo set_value('input_kodeMk', $matakuliah->kode_mk); ?>" readonly></td>
-        </tr>
-        <tr>
-          <td>Nama Matakuliah</td>
-          <td><input type="text" class="form-control" name="input_namaMk" placeholder="Nama Matakuliah" value="<?php echo set_value('input_namaMk', $matakuliah->nama_mk); ?>"></td>
-        </tr>
-        <tr>
-          <td>SKS</td>
-          <td><input type="text" class="form-control" name="input_sksMk" placeholder="SKS" value="<?php echo set_value('input_sksMk', $matakuliah->sks_mk); ?>"></td>
-        </tr>
-        <tr>
-          <td>Semester</td>
-          <td><input class="form-control" name="input_semesterMk" placeholder="Semester" value="<?php echo set_value('input_semesterMk', $matakuliah->semester_mk); ?>"></input></td>
-        </tr>
-      </table>
-        
-      <hr>
-      <input type="submit" name="submit" button class="btn btn-success" value="Ubah">
-      <a href="<?php echo site_url('admin/Matakuliah'); ?>"><input type="button" button class="btn btn-danger" value="Batal"></a>
-    <?php echo form_close(); ?>
-  </body>
+</body>
 </html>

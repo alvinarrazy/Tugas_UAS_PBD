@@ -1,62 +1,60 @@
+<!DOCTYPE html>
 <html>
-  <head>
-    <title>Form Ubah - Data Mahasiswa</title>
-    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto|Varela+Round|Open+Sans">
-<link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
-<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
-<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
-<script srchttps://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
-<script "<?php echo base_url() ?>assets/js/javascript.js"></script>
-<link rel="stylesheet" href="assets/css/style.css">
+<head>
+	<title>Form Ubah - Data Mahasiswa</title>
+	<link rel="stylesheet" type="text/css" href="<?php echo base_url('assets/css/main.css'); ?>">
+	<link rel="stylesheet" type="text/css" href="<?php echo base_url('assets/css/HeroSection.css'); ?>">
 
-  </head>
-  <body>
-    <div class="page-wrapper bg-dark p-t-100 p-b-50">
-        <div class="wrapper wrapper--w900">
-            <div class="card card-6">
-                <div class="row">
-                    <div class="col-sm-6">
-  <h1>Form Ubah <b>Data Mahasiswa</b></h1>
+	<script type='text/javascript' src="<?php echo base_url('js/jquery.min.js'); ?>"></script>
+</head>
+<body>
+<div class="hero-container">
+  <div
+    style="width: 45%; position: absolute; right: 20px"
+    class="form-container"
+  >
+  <?php echo form_open("admin/mahasiswa/ubah/".$mahasiswa->nim); ?>
+    <form style="width: 100%; height: 100%">
+      <div
+        style="width: 100%; height: 27%; display: block"
+        class="firstForm"
+      >
+        <h2
+          style="font-size: 20px; font-family: Montserrat"
+        >
+          Form Ubah Data Mahasiswa
+        </h2>
+		<label>NIM</label>
+        <input type="text" name="input_nim" value="<?php echo set_value('input_nim', $mahasiswa->nim); ?>" placeholder="NIM" style="padding: 5px " />
+        <label>Nama</label>
+        <input type="text" name="input_nama" value="<?php echo set_value('input_nama', $mahasiswa->nama); ?>" placeholder="Nama" style="padding: 5px " />
+        <label>Jenis Kelamin</label>
+        <select type="text" name="input_jeniskelamin" placeholder="Jenis Kelamin" style="padding: 5px " >
+			<option value="Laki-Laki">Laki-Laki</option>
+			<option value="Perempuan">Perempuan</option>
+		</select>
+        <label>Telepon</label>
+        <input type="text" name="input_telp" value="<?php echo set_value('input_telp', $mahasiswa->telp); ?>" placeholder="Nomor Telepon" style="padding: 5px " />
+        <label>Alamat</label>
+        <input type="text" name="input_alamat" value="<?php echo set_value('input_alamat', $mahasiswa->alamat); ?>" placeholder="Alamat" style="padding: 5px "" />
+        <br />
+        <input
+          type="submit"
+          value="Simpan"
+          class="submit"
+          name="submit"
+          id="submit"
+        />
+      </div>
+    </form>
+	<?php echo form_close(); ?>
+  </div>
+  <div class="foto" style="margin-right: 60%">
+    <img
+      style="max-height: 100%; max-width: 100%"
+      src="<?=base_url('assets/images/GKB.jpg');?>"
+    />
   </div>
 </div>
-</div>
-</div>
-</div>
-
-    <hr>
-    <!-- Menampilkan Error jika validasi tidak valid -->
-    <div style="color: red;"><?php echo validation_errors(); ?></div>
-    <?php echo form_open("admin/mahasiswa/ubah/".$mahasiswa->nim); ?>
-      <table cellpadding="8">
-        <tr>
-          <td>NIM</td>
-          <td><input type="text" class="form-control" name="input_nim" placeholder="NIM" value="<?php echo set_value('input_nim', $mahasiswa->nim); ?>" readonly></td>
-        </tr>
-        <tr>
-          <td>Nama</td>
-          <td><input type="text" class="form-control" name="input_nama" placeholder="Nama" value="<?php echo set_value('input_nama', $mahasiswa->nama); ?>"></td>
-        </tr>
-        <tr>
-          <td>Jenis Kelamin</td>
-          <td>
-          <input type="radio" name="input_jeniskelamin" value="Laki-laki" <?php echo set_radio('jeniskelamin', 'Laki-laki', ($mahasiswa->jenis_kelamin == "Laki-laki")? true : false); ?>> Laki-laki
-          <input type="radio" name="input_jeniskelamin" value="Perempuan" <?php echo set_radio('jeniskelamin', 'Perempuan', ($mahasiswa->jenis_kelamin == "Perempuan")? true : false); ?>> Perempuan
-          </td>
-        </tr>
-        <tr>
-          <td>Telepon</td>
-          <td><input type="text" class="form-control" name="input_telp" placeholder="Telepon" value="<?php echo set_value('input_telp', $mahasiswa->telp); ?>"></td>
-        </tr>
-        <tr>
-          <td>Alamat</td>
-          <td><textarea class="form-control" name="input_alamat" placeholder="Alamat"><?php echo set_value('input_alamat', $mahasiswa->alamat); ?></textarea></td>
-        </tr>
-      </table>
-        
-      <hr>
-      <input type="submit" name="submit" button class="btn btn-success" value="Ubah">
-      <a href="<?php echo site_url('admin/Mahasiswa'); ?>"><input type="button" button class="btn btn-danger" value="Batal"></a>
-    <?php echo form_close(); ?>
-  </body>
+</body>
 </html>

@@ -22,7 +22,7 @@ class Login extends CI_Controller {
 			}
 		}
 		$this->session->sess_destroy();
-		$this->load->view('index');
+		$this->load->view('login');
 	}
 
 	public function logout()

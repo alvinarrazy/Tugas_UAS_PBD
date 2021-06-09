@@ -39,6 +39,12 @@ class User_model extends CI_Model {
 		public function getUserData(){
             return $this->session->userdata('user_logged');
         }
+
+		public function getUserName(){
+			$this->db->from('mahasiswa');
+			$this->db->where('nim', $this->session->userdata('user_logged'));	
+            return $this->db->get()->result();
+        }
 	
 	}
 ?>

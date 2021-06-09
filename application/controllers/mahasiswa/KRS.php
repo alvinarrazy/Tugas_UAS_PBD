@@ -4,6 +4,7 @@ class KRS extends CI_Controller {
 
 	public function __construct(){
 		parent::__construct();
+		$this->load->helper('url');
 		$this->load->library('session');
 		$this->load->model('AmbilMk_model', 'AmbilMk_model');
 		$this->load->model('User_model', 'User_model');
@@ -11,8 +12,12 @@ class KRS extends CI_Controller {
 	}
 
 	public function index(){
+		$this->load->library('session');
 		$data['matakuliah_diambil_mahasiswa'] = $this->AmbilMk_model->view($this->session->userdata('user_logged'));
+		$data['mahasiswa_yang_login'] = $this->User_model->getUserName();
+		$this->load->view('mahasiswa_views/navbar', $data);
 		$this->load->view('mahasiswa_views/index', $data);
+		
 	}
 
 	public function tambah(){

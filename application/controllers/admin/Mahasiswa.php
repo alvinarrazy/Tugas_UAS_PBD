@@ -12,6 +12,7 @@ class Mahasiswa extends CI_Controller {
 
 	public function index(){
 		$data['mahasiswa'] = $this->Mahasiswa_model->view();
+		$this->load->view('admin_views/navbar');
 		$this->load->view('admin_views/mahasiswa/index', $data);
 	}
 
@@ -19,10 +20,10 @@ class Mahasiswa extends CI_Controller {
 		if($this->input->post('submit')){
 			if($this->Mahasiswa_model->validation("save")){
 				$this->Mahasiswa_model->save();
-				redirect('admin/mahasiswa/mahasiswa');
+				redirect('admin/mahasiswa');
 			}
 		}
-
+		$this->load->view('admin_views/navbar');
 		$this->load->view('admin_views/mahasiswa/form_tambah');
 	}
 	
@@ -36,6 +37,8 @@ class Mahasiswa extends CI_Controller {
 		}
 
 		$data['mahasiswa'] = $this->Mahasiswa_model->view_by($nim);
+	$this->load->view('admin_views/navbar');
+		
 		$this->load->view('admin_views/mahasiswa/form_ubah', $data);
 	}
 
@@ -47,7 +50,8 @@ class Mahasiswa extends CI_Controller {
 	public function search(){
 	$keyword = $this->input->post('keyword'); //Meminta Keyword
 	$data['mahasiswa']=$this->Mahasiswa_model->get_product_keyword($keyword);//Meminta Data melalui Mahasiswa_model->get_product_keyword
-	$this->load->view('admin_views/mahasiswa/search',$data);//Berfungsi untuk menampilkan data di view.php
+	$this->load->view('admin_views/navbar');
+	$this->load->view('admin_views/mahasiswa/index',$data);//Berfungsi untuk menampilkan data di view.php
 	}
 
 }
