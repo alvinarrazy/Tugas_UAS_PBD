@@ -1,14 +1,14 @@
 <?php 
 defined('BASEPATH') OR exit('No direct script access allowed');
-class Matakuliah_model extends CI_Model {
+class AmbilMk_model extends CI_Model {
 
 	public function view(){
-		return $this->db->get('matakuliah')->result();
+		return $this->db->get('matakuliah_diambil_mahasiswa')->result();
 	}
 	
-	public function view_by($kode_mk){
-		$this->db->where('kode_mk', $kode_mk);
-		return $this->db->get('matakuliah')->row();
+	public function view_by($nim){
+		$this->db->where('nim', $nim);
+		return $this->db->get('matakuliah_diambil_mahasiswa')->row();
 	}
 
 	public function validation($mode){
