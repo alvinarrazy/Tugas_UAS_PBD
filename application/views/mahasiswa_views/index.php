@@ -33,12 +33,11 @@
                         </div>
                     </div>
 					<a class="btn btn-primary" href="<?= site_url('login/logout') ?>">Logout</a>
-					<a class="btn btn-primary" href="<?= site_url('admin/Mahasiswa') ?>">Mahasiswa</a>
 
                 </div>
             </div>
 	<hr>
-	<button type="button" class="btn btn-info add-new"><i class="fa fa-plus"></i><a href='<?php echo base_url("admin/matakuliah/tambah"); ?>'>
+	<button type="button" class="btn btn-info add-new"><i class="fa fa-plus"></i><a href='<?php echo base_url("mahasiswa/KRS/tambah"); ?>'>
 	Tambah Data</a></button><br><br>
 
 	<table class="table table-striped table-hover table-bordered"border="1" cellpadding="7">
@@ -56,7 +55,7 @@
 
 			<th>Kode Matakuliah <i class="fa fa-sort"> </th>
 			<th>Nama Matakuliah <i class="fa fa-sort"> </th>
-			<th class=""colspan="2"><center>Aksi</center></th>
+			<th>Hapus <i class="fa fa-sort"> </th>
 		
 		</tr>
 		<?php
@@ -65,8 +64,7 @@
 				echo "<tr>
 				<td>".$data->kode_mk."</td>
 				<td>".$data->nama_mk."</td>
-				<td ><center><a href='".base_url("admin/matakuliah/ubah/".$data->kode_mk)."'>Ubah</a></center></td>
-				<td><center><a href='".base_url("admin/matakuliah/hapus/".$data->kode_mk)."'>Hapus</a></center></td>
+				<td><center><a href='".base_url("mahasiswa/krs/hapus/".$data->kode_mk)."'>Hapus</a></center></td>
 				</tr>";
 
 			}

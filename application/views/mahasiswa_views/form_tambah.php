@@ -25,19 +25,27 @@
 </div>
 	<hr>
 	<div style="color: red;"><?php echo validation_errors(); ?></div>
-	<?php echo form_open("admin/mahasiswa/tambah"); ?>
+	<?php echo form_open("mahasiswa/KRS/tambah"); ?>
 	<table cellpadding="8">
 		<tr>
 			<div class="form-group">
          <div class="row">
          	<div class="col-sm-6 col-md-6 col-xs-6">
-			<td>NIM</td>
-			<td><input type="text"class="form-control" name="input_nim" placeholder="NIM" value="<?php echo set_value('input_nim'); ?>"></td>
+			<td>Nama Matakuliah</td>
+			<td>
+			<select type="text"class="form-control" name="input_kodeMk" placeholder="Nama Matakuliah" value="<?php echo set_value('input_kodeMk'); ?>">
+			<?php
+			if( ! empty($matakuliah)){
+				foreach($matakuliah as $data){
+					echo "
+					<option value=".$data->kode_mk.">".$data->nama_mk." - ".$data->kode_mk."</option>
+					";
+				}
+			}
+			?>
+			</select>
+			</td>
 		</div>
-		</tr>
-		<tr>
-			<td>Kode Matakuliah</td>
-			<td><input type="text" class="form-control" name="input_kodeMk" placeholder="Kode Matakuliah" value="<?php echo set_value('input_nama'); ?>"></td>
 		</tr>
 	</table>
 
@@ -45,7 +53,7 @@
 	<div class="control-group">
 		<div class="controls">
 	<input type="submit" name="submit" button class="btn btn-success" value="Simpan">
-	<a href="<?php echo base_url(); ?>"><input type="button" button class="btn btn-danger" value="Batal"></a>
+	<a href="<?php echo site_url("mahasiswa/KRS"); ?>"><input type="button" button class="btn btn-danger" value="Batal"></a>
 	<?php echo form_close(); ?>
 </body>
 </html>

@@ -23,9 +23,14 @@ class KRS extends CI_Controller {
 				redirect('mahasiswa/KRS');
 			}
 		}
-
-		$this->load->view('mahasiswa_views/form_tambah');
+		$data['matakuliah'] = $this->AmbilMk_model->viewMatkulOptions();
+		$this->load->view('mahasiswa_views/form_tambah', $data);
 	}
+
+	public function hapus($kode_mk){
+		$this->AmbilMk_model->delete($kode_mk);
+		redirect('mahasiswa/KRS');
+		}
 
 }
 

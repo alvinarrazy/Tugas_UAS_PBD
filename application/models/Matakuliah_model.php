@@ -65,5 +65,6 @@ class Matakuliah_model extends CI_Model {
 
 			return $this->db->get()->result();//Hasil
 		}	
+		
 	}
 ?>

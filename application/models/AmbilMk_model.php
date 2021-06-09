@@ -5,6 +5,10 @@ class AmbilMk_model extends CI_Model {
 	public function view(){
 		return $this->db->get('matakuliah_diambil_mahasiswa')->result();
 	}
+
+	public function viewMatkulOptions(){
+		return $this->db->get('matakuliah')->result();
+	}
 	
 	public function view_by($nim){
 		$this->db->where('nim', $nim);
@@ -25,27 +29,14 @@ class AmbilMk_model extends CI_Model {
 		public function save($nim){
 			$data = array(
 				"kode_mk" => $this->input->post('input_kodeMk'),
-				"nim_mahasiswa" => $this->input->post($nim)
+				"nim_mahasiswa" => $nim
 			);
-
 			$this->db->insert('mk_diambil', $data);
 		}
 
 		public function delete($kode_mk){
 			$this->db->where('kode_mk', $kode_mk);
-			$this->db->delete('matakuliah');
+			$this->db->delete('mk_diambil');
 		}
-
-		public function get_product_keyword($keyword) //Fungsi untuk meminta keyword yang ingin di cari
-		{
-			$this->db->select('*');
-			$this->db->from('matakuliah'); 
-			$this->db->like('nama_mk',$keyword);
-			$this->db->or_like('kode_mk',$keyword);
-			$this->db->or_like('sks_mk',$keyword);
-			$this->db->or_like('semester_mk',$keyword);
-
-			return $this->db->get()->result();//Hasil
-		}	
 	}
 ?>
