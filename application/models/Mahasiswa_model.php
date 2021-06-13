@@ -1,6 +1,6 @@
 <?php 
 defined('BASEPATH') OR exit('No direct script access allowed');
-class M_data extends CI_Model {
+class Mahasiswa_model extends CI_Model {
 
 	public function view(){
 		return $this->db->get('mahasiswa')->result();
@@ -67,6 +67,6 @@ class M_data extends CI_Model {
 			$this->db->or_like('alamat',$keyword);//Menyortir menurut Alamat
 
 			return $this->db->get()->result();//Hasil
-		}
+		}	
 	}
 ?>
