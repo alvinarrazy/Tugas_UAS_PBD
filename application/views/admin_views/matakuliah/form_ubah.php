@@ -25,7 +25,7 @@
           Form Ubah Data Matakuliah
         </h2>
 		<label>Kode Matakuliah</label>
-        <input type="text" name="input_kodeMk" value="<?php echo set_value('input_kodeMk', $matakuliah->kode_mk); ?>" placeholder="Kode Matakuliah" style="padding: 5px " />
+        <input type="text" readonly name="input_kodeMk" value="<?php echo set_value('input_kodeMk', $matakuliah->kode_mk); ?>" placeholder="Kode Matakuliah" style="padding: 5px " />
         <label>Nama Matakuliah</label>
         <input type="text" name="input_namaMk" value="<?php echo set_value('input_namaMk', $matakuliah->nama_mk); ?>" placeholder="Nama Matakuliah" style="padding: 5px " />
         <label>SKS</label>

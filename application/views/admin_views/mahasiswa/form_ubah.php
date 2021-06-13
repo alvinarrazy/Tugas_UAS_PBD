@@ -25,7 +25,7 @@
           Form Ubah Data Mahasiswa
         </h2>
 		<label>NIM</label>
-        <input type="text" name="input_nim" value="<?php echo set_value('input_nim', $mahasiswa->nim); ?>" placeholder="NIM" style="padding: 5px " />
+        <input readonly type="text" name="input_nim" value="<?php echo set_value('input_nim', $mahasiswa->nim); ?>" placeholder="NIM" style="padding: 5px " />
         <label>Nama</label>
         <input type="text" name="input_nama" value="<?php echo set_value('input_nama', $mahasiswa->nama); ?>" placeholder="Nama" style="padding: 5px " />
         <label>Jenis Kelamin</label>
